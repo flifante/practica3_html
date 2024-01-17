@@ -1,0 +1,566 @@
+/********************** 
+Estilos root 
+**********************/
+/* Hago el reset de margen y padding, así como del border box para empezar
+   de cero y poder aplicar los estilos adecuadamente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Establezco las variables */
+:root {
+    --main-color: rgb(0, 59, 74); /* Color texto y fondo footer */
+    --textos-fondo-oscuro: rgb(255, 255, 255);
+    --color-contraste: rgb(191, 12, 240);
+    --color-contraste-claro: rgb(229, 225, 254);
+    --color-fondo-body: rgb(247, 247, 247);
+    --color-gris-textos: rgb(158, 157, 171);
+    --lato: 'Lato';
+    --noto-serif: 'Noto Serif';
+}
+
+/**********************
+Estilos generales
+**********************/
+body { /* Establezco la fuente para el texto de las páginas */
+    font-family: var(--lato);
+    color: var(--main-color);
+    background-color: var(--color-fondo-body);
+}
+
+h1 {
+    padding: 1rem;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+h3 {
+    margin-left: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin: 0.6rem;
+    font-size: 0.8rem;
+}
+
+img { /* Establezco tamaño máximo de las imágenes */
+    max-width: 100%;
+}
+
+figcaption { /* Reduzco el tamaño de la letra y posiciono a la derecha la leyenda de la imagen */
+    font-size: 0.5rem;
+    text-align: right;
+}
+
+/* Estilo para los enlaces de la página de color principal y sin subrayado por defecto */
+a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+/* Estilo para los enlaces de blog.html con color de contraste y el subrayado a puntos */
+a.enlaces-blog {
+    color: var(--color-contraste);
+    border-bottom: 1px dotted var(--color-contraste);
+}
+/* color y puntos de contraste para los enlaces del texto */
+a.enlace-texto {
+    color: var(--color-contraste);
+    border-bottom: 1px dotted var(--color-contraste);
+}
+/* color principal para el estado hover de los enlaces del texto */
+a.enlace-texto:hover {
+    color: var(--main-color);
+}
+
+.container { /* Establezco el 100% del espacio para el div principal */
+    width: 100%;
+}
+
+.container p,
+.container h1,
+.container h2 {
+    max-width: 95vw;
+    align-items: center;
+}
+
+.section-img-index { /* Sección de imágenes, establezco el fondo de color */
+    background-color: var(--color-contraste-claro);
+    background-size: 100vw;
+}
+    
+/* Estilo para aplicar a textos en cursiva */
+.italic {
+    font-style: italic;
+}
+
+/**********************
+Estilos index.html
+**********************/
+/* Ajusto el margen y la altura del h2 y p */
+.articulo-index h2,
+.articulo-index p {
+    margin: 1rem;
+    line-height: 1.2rem;
+}
+/* Configuración de la imagen de index.html, utilizo flex, alineo los items al centro para
+   que el texto quede verticalmente centrado, pongo la imagen de fondo en cover para cubrir
+   completamente el contenedor, un minimo de altura y una altura del 75 de viewport */
+.cabecera-index {
+    display: flex;
+    align-items: center;
+    background-image: url('../img/hero-image-home.jpg');
+    background-size: cover;
+    min-height: auto;
+    height: 75vw;
+}
+/* Doy estilo a los botones me interesa con un color de fondo, margen superior, inferior e iqzuierdo, padding para
+    dejar espacio entre el botón y el contenido del texto, elimino el borde y redondeo un 
+    poco el borde */
+.buttons { 
+    background-color: var(--main-color);
+    color: var(--textos-fondo-oscuro);
+    border: none;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-left: 1rem;
+}
+/* Cambio el color de la letra a blanco para los botones que van sobre fondo oscuro */
+.a-buttons {
+    display: block;
+    width: 8rem;
+    text-align: center;
+    background-color: var(--main-color);
+    color: var(--textos-fondo-oscuro);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    margin: 1.5rem 0rem;
+}
+/* Configuro los contenedores de los articulos izq y der para que ocupen solo el 90% del
+   viewport, margen automático para centrarlo y padding-top para dejar un pequeño padding
+   en la parte superior */
+.articulo-izq,
+.articulo-der {
+    width: 90vw;
+    margin: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+/* Establezco el margen izquierdo ya que al utilizar más arriba .buttons moví estos botones
+   Aunque podría haberlo solucionado cambiando la clase al resto de botones */
+.articulo-izq .buttons,
+.articulo-der .buttons {
+    margin-left: 0;
+}
+/* Formateo el margen de los parrafos de index.html */
+.p-index {
+    margin: 1rem 0rem;
+}
+/* Utilizo flex en forma de columna, establezco margen y una anchura máxima para el input 
+   de 90% del viewport */
+form ul li {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    max-width: 90vw;
+}
+/* Doy espacio por debajo del label para separarlo del input */
+form ul li label {
+    margin-bottom: 0.5rem;
+    margin-left: 0rem;
+}
+/* Reduzco el tamaño de la fuente y el margen a 1rem de la información sobre
+   proteccion de datos y la etiqueta de política de privacidad */
+form p,
+form label {
+    margin: 1rem;
+    font-size: 0.6rem;
+}
+/* Cambio el formato de los input, cambio el color del borde, le añado un borde redondeado
+   y establezco el margen izquierdo a 0 y un padding para introducir relleno alrededor del 
+   placeholder del input */
+input[type="text"],
+input[type="email"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 0rem;
+}
+/**********************
+Estilos menu de navegacion
+**********************/
+
+/* Para establecer el estilo del menu, colocar los elementos centrados
+   verticalmente y dar algo de padding, así como establecer fondo de color
+   blanco
+*/
+.menu { 
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-weight: 700;
+}
+
+/* Para centrar verticalmente el logo vital360 en nav */
+.menu .logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Para visualizar blog y videos en fila */
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+/* Para dar margen a los elementos blog y videos del nav */
+.menu ul li {
+    margin: 0.5rem;
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.menu ul a:hover {
+    color: var(--color-contraste);
+}
+/**********************
+Estilos footer
+**********************/
+footer {
+    max-width: 100%;
+    background-color: var(--main-color);
+}
+
+footer p {
+    color: var(--color-contraste-claro);
+}
+
+.footer-left  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* footer izquierda */
+.footer-left img{
+    max-width: 25%;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+/* footer parte derecha */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* footer iconos redes sociales */
+.footer-right .social-icons ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+/* footer politicas y aviso legal */
+.footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    margin: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.footer-nav ul li {
+    margin-bottom: 0.4rem;
+}
+.footer-nav ul>li a { /* Estilos para los enlaces del footer */
+    text-decoration: none;
+    color: var(--color-contraste-claro);
+}
+
+/**********************
+Estilos blog.html
+**********************/
+/* Establezco color de fondo en blanco, un borde de color de contraste claro, margen auto y width 90vw
+    es para ajustar la imagen al centro y que no ocupe el 100% de la pantalla. Margin bottom para
+    poner una separación entre un artículo y otro. Padding bottom para dar un poco de separación
+    a leer más del borde inferior */
+.entrada-blog {
+    background-color: white;
+    border: 1px solid var(--color-contraste-claro);
+    margin: auto;
+    width: 90vw;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+/* Establezco el contenedor padre como relative para poder gestionar la distribución
+   de las clases .overlay y el figcaption de las imágenes que se posicionarán en relación
+   con este contenedor */
+.entrada-blog figure {
+    position: relative;
+}
+
+/* Esta clase la utilizo para posicionar las categorías de las entradas de blog
+   Utilizo posición absoluta para poder posicionar la etiqueta dentro de la imagen
+   Utilizo top y left para poder darle márgenes a la etiqueta y que quede como
+   en el mockup, separado de los bordes. Utilizo background-color y color para
+   cambiar el colo del fondo y de la fuente. Utilizo padding finalmente para 
+   darle un poco de espaciado interno a la etiqueta.
+*/
+.overlay {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: var(--main-color);
+    color: white;
+    padding: 0.5rem;
+}
+
+/* Igual que con la clase overlay, utilizo position relative para poder posicionar
+   el pie de foto en el interior de la imagen. Utilizo bottom y right para posicionar
+   el elemento igual que en el mockup
+*/
+.entrada-blog figcaption {
+    position: absolute;
+    bottom: 1rem;
+    right: 0.5rem;
+    background-color: var(--color-contraste-claro);
+}
+/* Letra en color blanco para los enlaces de las categorías del blog */
+.categoria a {
+    color:var(--textos-fondo-oscuro);
+}
+/* Color de hover al color de contraste de los enlaces vacíos de categoría */
+.categoria a:hover {
+    color:var(--color-contraste);
+}
+/* Para alinear el texto a la izquierda de p y h2 */
+.article-header p,
+.article-header h2 {
+    text-align: left;
+}
+/* Doy el formato del menú de paginación en fila horizontal, quito las viñetas a la lista
+    y doy un margen y padding para ajustar */
+.paginacion ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 2rem 1rem 4rem;
+    padding: 2rem;
+}
+/* Establezco el borde, un padding y un margen a los elementos del nav de paginación y
+    alineo el texto al centro */
+.paginacion ul li .a-paginacion {
+        border: 1px solid #ccc;
+        padding: 0.8rem;
+        margin: 0.4rem;
+        text-align: center;
+}
+/* Color de fondo y color de borde asigndo color de contraste al elemento 1 de la
+   paginación para que quede en color lila */
+.paginacion ul li:first-child a {
+    background-color: var(--color-contraste);
+    border-color: var(--color-contraste);
+}
+/* Color de letra blanca al primer elemento del nav de paginación, es decir, al 1*/
+.paginacion ul li:first-child a {
+    color: white;
+}
+/* Hover con color de letra blanca, borde y fondo de color lila de contraste para los
+   elementos del menú de paginación que no son el primer elemento */
+.paginacion ul li:not(:first-child) a:hover {
+    background-color: var(--color-contraste);
+    border-color: var(--color-contraste);
+    color: white;
+}
+/* Estilo para el h2 de la página blog */
+.h2-blog {
+    font-size: 1.5rem;
+    margin: 0.6rem;
+}
+/* Formato de párrafo en gris y fuente más pequeña para los artículos del blog. Configuro el
+   margen superior */
+.parrafo-blog {
+    font-size: 0.6rem;
+    color: var(--color-gris-textos);
+    margin-top: 0.4rem;
+}
+/* estados de color para el hover de enlaces y botones */
+a.enlace-entrada-blog:hover,
+.buttons:hover,
+.a-buttons:hover {
+    color: var(--color-contraste);
+}
+/* Ajusto el margen para Leer más */
+a.enlaces-blog {
+    margin: 0.6rem;
+}
+/* Establezco el comportamiendo del hover, color y puntitos de color principal al pasar el cursor */
+a.enlaces-blog:hover {
+    color: var(--main-color);
+    border-bottom: 1px dotted var(--main-color);
+}
+
+/********************** 
+Estilos para página entrada.html
+**********************/
+/* Eliminar el estilo de la viñeta a la lista del rastro de migas */
+.breadcrumb {
+    list-style: none;
+    margin: 2.4rem 1rem 1.4rem;
+    font-size: 0.8rem;
+}
+
+/* Para posicionar los elementos del rastro de migas en línea */
+.breadcrumb-item {
+    display: inline;
+}
+#breadcrumb-selected {
+    font-weight: 700;
+}
+
+/* Estilos para poner el separador del rastro de migas y dar algo de margen de separación */
+.breadcrumb-item::after {
+    content: '>';
+    margin: 0 0.2rem;
+}
+/* Estilos para eliminar del último elemento el separador > y que no aparezca despúes del último elemento */
+.breadcrumb-item:last-child::after {
+    content: '';
+}
+/* El color de contraste para el hover de los elementos del rastro de migas */
+.breadcrumb-item a:hover {
+    color: var(--color-contraste);
+}
+/* Contenedor para dar formato a la imagen, titular y el parrafo con la persona que ha escrito
+   el artículo */
+.container-entrada {
+    background-color: var(--color-contraste-claro);
+    margin: auto;
+    width: 85vw;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+}
+/* Establezco el color para la palabra Fitness de la entrada */
+.texto-entrada {
+    color: var(--main-color);
+}
+/* Establezco un fondo blanco, margenes, un ancho máximo del 90% del viewport y margen y padding infeior
+   al texto principal del artículo de entrada.html */
+.entrada {
+    background-color: white;
+    margin: auto;
+    width: 90vw;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+/* Establezco margen para los encabezados h2 de entrada.html */
+.h2-entrada {
+    margin: 0.6rem;
+}
+/* Añado un grosor de fuente de 700 para dar estilos de negrita a los elementos de la lista */
+.texto-lista {
+    font-weight: 700;
+}
+/* Establezco el estilo de la lista ordenada de entrada.html ajustando el tamaño de la fuente
+   y los márgenes superior, inferior e izquierdo */
+.ol-entrada li {
+    font-size: 0.8rem;
+    margin-left: 1.6rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+/* Establezco el esteilo de la lista desordenada de entrada.html ajustando el tamaño de la fuente
+   y los márgenes superior, inferior e izquierdo */
+.ul-entrada li {
+    font-size: 0.8rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+/* Anchura del blockquote al 90% del viewport, ajusto margen y padding izquierdo. También hago el borde izquierdo
+    del color de contraste */
+blockquote {
+    width: 90vw;
+    margin: 1rem 0.8rem;
+    padding-left: 0.8rem;
+    border-left: 2px solid var(--color-contraste);
+}
+
+/* Doy el formato del menú de categorías en fila horizontal, quito las viñetas a la lista
+   y doy un margen izquierdo e inferior para ajustar. Tambiñen ajusto el tamaño de la fuente */
+.ul-categorias ul {
+        display: flex;
+        list-style: none;
+        font-size: 0.6rem;
+        margin-left: 1rem;
+        margin-bottom: 4rem;
+}
+/* Establezco el borde, un padding y un margen a los elementos del nav de categorías */
+.ul-categorias ul li .categorias-item {
+            border: 1px solid var(--main-color);
+            padding: 0.4rem;
+            margin: 0.4rem;
+}
+
+.ul-categorias ul li .categorias-item:hover {
+    color: white;
+    background-color: var(--color-contraste);
+}
+/********************** 
+Estilos para página Videos.html
+**********************/
+/* Ajuste de aspect ratio y anchura para los vídeos. También se establece un borde de 0 para mejorar el aspecto visual */
+iframe.video-fluid {
+    width: 100%;
+    height: 56.25vw; /* altura 9/16 = 0.5625*/
+    border: 0;
+}
+/* Margen inferior para el final de los vídeos para que haya separación entre el final de los vídeos y el footer */
+.videos-container {
+    margin-bottom: 7rem;
+}
+/* Color de fondo blanco, borde de color de contraste claro y margen para los contenedores
+    con los vídeos y el texto */
+.video-box {
+    background-color: white;
+    border: 1px solid var(--color-contraste-claro);
+    margin: 2rem 1rem;
+}
+/* Ajuste para el texto que va con los vídeos */
+.h2-video-box {
+    text-align: left;
+    font-size: 1.6rem;
+    padding-top: 0.4rem;
+    margin: 0.6rem;
+}
+
+/**********************
+Media Queries
+**********************/
+
+/* Estilos para escritorio */
+/* @media only screen and (min-width: 1024px) { 
+
+} */
+
+/* Estilos para tablet */
+/* @media only screen and (min-width: 768px) and (max-width:1023px) { 
+
+} */
